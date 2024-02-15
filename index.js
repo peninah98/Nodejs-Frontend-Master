@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log("process.env")
+import "./scr/command.js"
