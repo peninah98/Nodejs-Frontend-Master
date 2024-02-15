@@ -1,1 +1,2 @@
-console.log(process.env);
+#!/usr/bin/env node
+console.log("process.env")
