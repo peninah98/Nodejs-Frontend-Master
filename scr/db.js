@@ -1,9 +1,12 @@
 import fs from "node:fs/promises"
+import path from "node:path"
+import { fileURLToPath } from "url"
 
-const DB_PATH = new URL("../db.json", import.meta.url).pathname
-
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const DB_PATH = path.join(__dirname, "db.json")
 export const getDB = async () => {
-  const db = await fs.readFile(DB_PATH, "utf8")
+  const db = await fs.readFile(DB_PATH, "utf-8")
   return JSON.parse(db)
 }
 
@@ -18,3 +21,4 @@ export const insertDB = async (note) => {
   await saveDB(db)
   return note
 }
+//C:\Users\123\Desktop\Penine\backend\Nodejs-Frontend-Master\db.json
